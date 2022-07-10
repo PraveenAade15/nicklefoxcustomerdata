@@ -12,15 +12,15 @@ import kotlinx.android.synthetic.main.item_layout.view.*
 class UserAdapterclass(
     private val list: List<User>,
     private val onUserClicked: OnUserItemClicked
-) : RecyclerView.Adapter<MoneyViewHolder>() {
+) : RecyclerView.Adapter<UserViewHolder>() {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MoneyViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UserViewHolder {
         val view =
             LayoutInflater.from(parent.context).inflate(R.layout.item_layout, parent, false)
-        return MoneyViewHolder(view, onUserClicked)
+        return UserViewHolder(view, onUserClicked)
     }
 
-    override fun onBindViewHolder(holder: MoneyViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: UserViewHolder, position: Int) {
         holder.setData(list[position])
     }
 
@@ -29,7 +29,7 @@ class UserAdapterclass(
     }
 }
 
-class MoneyViewHolder(
+class UserViewHolder(
     private val itemView: View,
     private val onUserItemClicked: OnUserItemClicked
 ) : RecyclerView.ViewHolder(itemView) {

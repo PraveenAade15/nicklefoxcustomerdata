@@ -43,12 +43,14 @@ class AddDetailsActivity : AppCompatActivity() {
         }
 
     }
+    // back press item navigate to the home screen
 
     private fun buttonClick() {
         back.setOnClickListener {
             finish()
         }
     }
+    //checking name ,email and phone number should not be empty
 
     private fun checkCredentials(): Boolean {
         if (et_Name.text.toString().isEmpty() && et_Email.text.toString()
@@ -60,6 +62,7 @@ class AddDetailsActivity : AppCompatActivity() {
         }
         return true
     }
+    //edit user from here
 
     private fun editUser() {
         val userList: User = intent.getSerializableExtra("user") as User

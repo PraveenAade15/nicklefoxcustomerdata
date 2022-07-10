@@ -9,7 +9,9 @@ import android.view.ViewGroup
 import android.widget.Button
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.nicketfoxcustomerlist.R
 import com.example.nicketfoxcustomerlist.databinding.FragmentHomeBinding
 import com.example.nicketfoxcustomerlist.infra.OnUserItemClicked
@@ -47,18 +49,36 @@ class HomeFragment : Fragment(), OnUserItemClicked {
         recyclerView.layoutManager = LinearLayoutManager(context)
         getDataFromDB()
         getSort()
+//        swipItempDelete()
     }
+
+    //swipe function item can delete from list
+
+//    private fun swipItempDelete() {
+//        val swipeToDeleteItem=object :SwapToDeleteItem(){
+//            override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
+//                val position=viewHolder.adapterPosition
+//                userList.removeAt(position)
+//                recyclerView.adapter?.notifyItemRemoved(position)
+//            }
+//
+//        }
+//        val itemTouchHelper=ItemTouchHelper(swipeToDeleteItem)
+//        itemTouchHelper.attachToRecyclerView(recyclerView)
+//    }
+
+    //update all item observe
 
     private fun getDataFromDB() {
         viewModel.getAllMoney().observe(viewLifecycleOwner, {
             userList.clear()
             userList.addAll(it)
-//            userList.sortBy {
-//                it.name
-//            }
             recyclerView.adapter?.notifyDataSetChanged()
         })
     }
+
+    // sort item in list with name
+
     private fun getSort() {
         binding.sort.setOnClickListener {
             viewModel.getAllMoney().observe(viewLifecycleOwner, {
@@ -72,6 +92,7 @@ class HomeFragment : Fragment(), OnUserItemClicked {
         }
     }
 
+//item click delete from here
 
     override fun onClick(user: User) {
         val alertDialog = AlertDialog.Builder(context).create()
@@ -94,6 +115,8 @@ class HomeFragment : Fragment(), OnUserItemClicked {
             displaySnackBarUtil("Customer deleted")
         }
     }
+
+    // sneak bar error handling
 
     private fun displaySnackBarUtil(message: String) {
         snackBarUtil = SnackBarUtil(requireContext(), binding.root, message)
