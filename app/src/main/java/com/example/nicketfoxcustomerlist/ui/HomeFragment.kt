@@ -84,8 +84,8 @@ class HomeFragment : Fragment(), OnUserItemClicked {
         mBtnEdit.setOnClickListener {
             val intent = Intent(context, AddDetailsActivity::class.java)
             intent.putExtra("user", user)
-
             startActivity(intent)
+            alertDialog.dismiss()
         }
 
         mBtnDelete.setOnClickListener {

@@ -1,126 +1,134 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <!--Custom Views for ToolBar-->
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:id="@+id/rootActivity"
         android:layout_height="match_parent">
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/black"
-            android:minHeight="?attr/actionBarSize"
-            android:textColorPrimary="@color/black"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+        <!--Custom Views for ToolBar-->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:id="@+id/rootActivity"
+            android:layout_height="match_parent">
 
-            <TextView
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/black"
+                android:minHeight="?attr/actionBarSize"
+                android:textColorPrimary="@color/black"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="Add Customer"
+                    android:textColor="@color/white"
+                    android:textSize="24sp"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:id="@+id/back"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="left"
+                    android:src="@drawable/ic_back_press" />
+
+
+            </androidx.appcompat.widget.Toolbar>
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/startGuideLine"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="Add Customer"
-                android:textColor="@color/white"
-                android:textSize="24sp"
-                android:textStyle="bold" />
+                android:orientation="vertical"
+                app:layout_constraintGuide_begin="@dimen/dp_16" />
 
-            <ImageView
-                android:id="@+id/back"
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/endGuideLine"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
+                android:orientation="vertical"
+                app:layout_constraintGuide_end="@dimen/dp_16" />
+
+
+            <EditText
+                android:id="@+id/et_Name"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/dp_50"
+                android:layout_marginTop="@dimen/dp_10"
+                android:background="@drawable/et_custom"
+                android:hint="@string/enter_your_name"
+                android:padding="@dimen/dp_15"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="@id/endGuideLine"
+                app:layout_constraintStart_toStartOf="@+id/startGuideLine"
+                app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+
+            <EditText
+                android:id="@+id/et_Email"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/dp_50"
+                android:layout_marginTop="@dimen/dp_10"
+                android:background="@drawable/et_custom"
+                android:hint="@string/enter_your_email"
+                android:padding="@dimen/dp_15"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="@id/endGuideLine"
+                app:layout_constraintStart_toStartOf="@+id/startGuideLine"
+                app:layout_constraintTop_toBottomOf="@+id/et_Name" />
+
+            <EditText
+                android:id="@+id/et_Phone"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/dp_50"
+                android:layout_marginTop="@dimen/dp_10"
+                android:background="@drawable/et_custom"
+                android:hint="@string/enter_your_phone_number"
+                android:padding="@dimen/dp_15"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="@id/endGuideLine"
+                app:layout_constraintStart_toStartOf="@+id/startGuideLine"
+                app:layout_constraintTop_toBottomOf="@+id/et_Email" />
+
+            <RatingBar
+                android:id="@+id/rating_bar"
                 android:layout_gravity="left"
-                android:src="@drawable/ic_back_press" />
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:scaleX="0.9"
+                android:scaleY="0.8"
+                android:rating="3"
+                android:stepSize="1"
+                android:background="@color/white"
+                app:layout_constraintStart_toStartOf="@id/startGuideLine"
+                app:layout_constraintTop_toBottomOf="@+id/et_Phone"
+                android:progressTint="@color/yellow_200" />
 
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_save"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/btn_custom"
+                android:text="@string/save"
+                android:textColor="@android:color/white"
+                app:layout_constraintEnd_toEndOf="@id/endGuideLine"
+                app:layout_constraintStart_toStartOf="@id/startGuideLine"
+                app:layout_constraintTop_toBottomOf="@+id/rating_bar" />
 
-        </androidx.appcompat.widget.Toolbar>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/startGuideLine"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintGuide_begin="@dimen/dp_16" />
-
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/endGuideLine"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintGuide_end="@dimen/dp_16" />
-
-
-        <EditText
-            android:id="@+id/et_Name"
-            android:layout_width="0dp"
-            android:layout_height="@dimen/dp_50"
-            android:layout_marginTop="@dimen/dp_10"
-            android:background="@drawable/et_custom"
-            android:hint="@string/enter_your_name"
-            android:padding="@dimen/dp_15"
-            android:textSize="16sp"
-            app:layout_constraintEnd_toEndOf="@id/endGuideLine"
-            app:layout_constraintStart_toStartOf="@+id/startGuideLine"
-            app:layout_constraintTop_toBottomOf="@+id/toolbar" />
-
-        <EditText
-            android:id="@+id/et_Email"
-            android:layout_width="0dp"
-            android:layout_height="@dimen/dp_50"
-            android:layout_marginTop="@dimen/dp_10"
-            android:background="@drawable/et_custom"
-            android:hint="@string/enter_your_email"
-            android:padding="@dimen/dp_15"
-            android:textSize="16sp"
-            app:layout_constraintEnd_toEndOf="@id/endGuideLine"
-            app:layout_constraintStart_toStartOf="@+id/startGuideLine"
-            app:layout_constraintTop_toBottomOf="@+id/et_Name" />
-
-        <EditText
-            android:id="@+id/et_Phone"
-            android:layout_width="0dp"
-            android:layout_height="@dimen/dp_50"
-            android:layout_marginTop="@dimen/dp_10"
-            android:background="@drawable/et_custom"
-            android:hint="@string/enter_your_phone_number"
-            android:padding="@dimen/dp_15"
-            android:textSize="16sp"
-            app:layout_constraintEnd_toEndOf="@id/endGuideLine"
-            app:layout_constraintStart_toStartOf="@+id/startGuideLine"
-            app:layout_constraintTop_toBottomOf="@+id/et_Email" />
-        <RatingBar
-            android:id="@+id/rating_bar"
-            android:layout_gravity="left"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="14dp"
-            android:scaleX="0.9"
-            android:scaleY="0.8"
-            android:rating="3"
-            android:stepSize="1"
-            android:background="@color/white"
-            app:layout_constraintStart_toStartOf="@id/startGuideLine"
-            app:layout_constraintTop_toBottomOf="@+id/et_Phone"
-            android:progressTint="@color/yellow_200" />
-
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btn_save"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:background="@drawable/btn_custom"
-            android:text="@string/save"
-            android:textColor="@android:color/white"
-            app:layout_constraintEnd_toEndOf="@id/endGuideLine"
-            app:layout_constraintStart_toStartOf="@id/startGuideLine"
-            app:layout_constraintTop_toBottomOf="@+id/rating_bar" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

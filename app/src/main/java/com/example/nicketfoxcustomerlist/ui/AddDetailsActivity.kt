@@ -2,21 +2,19 @@ package com.example.nicketfoxcustomerlist.ui
 
 import android.content.Intent
 import android.os.Bundle
-import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.navigation.Navigation.findNavController
-import androidx.navigation.fragment.findNavController
+
 import com.example.nicketfoxcustomerlist.MainActivity
 import com.example.nicketfoxcustomerlist.R
+
 import com.example.nicketfoxcustomerlist.model.User
 import com.example.nicketfoxcustomerlist.utils.SnackBarUtil
 import com.example.nicketfoxcustomerlist.viewmodel.UserViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.activity_add_details.*
-import kotlinx.android.synthetic.main.fragment_home.*
-import kotlinx.android.synthetic.main.fragment_home.view.*
+
 
 @AndroidEntryPoint
 class AddDetailsActivity : AppCompatActivity() {
