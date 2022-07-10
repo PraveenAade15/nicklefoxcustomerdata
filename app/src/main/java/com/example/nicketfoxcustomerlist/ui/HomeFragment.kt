@@ -45,15 +45,32 @@ class HomeFragment : Fragment(), OnUserItemClicked {
         recyclerView.adapter = UserAdapterclass(userList, this)
         recyclerView.layoutManager = LinearLayoutManager(context)
         getDataFromDB()
+        getSort()
     }
 
     private fun getDataFromDB() {
         viewModel.getAllMoney().observe(viewLifecycleOwner, {
             userList.clear()
             userList.addAll(it)
+//            userList.sortBy {
+//                it.name
+//            }
             recyclerView.adapter?.notifyDataSetChanged()
         })
     }
+    private fun getSort() {
+        binding.sort.setOnClickListener {
+            viewModel.getAllMoney().observe(viewLifecycleOwner, {
+                userList.clear()
+                userList.addAll(it)
+                userList.sortBy {
+                    it.name
+                }
+                recyclerView.adapter?.notifyDataSetChanged()
+            })
+        }
+    }
+
 
     override fun onClick(user: User) {
         val alertDialog = AlertDialog.Builder(context).create()

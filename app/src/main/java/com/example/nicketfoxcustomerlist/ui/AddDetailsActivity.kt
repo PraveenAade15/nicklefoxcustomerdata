@@ -2,6 +2,7 @@ package com.example.nicketfoxcustomerlist.ui
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -14,6 +15,8 @@ import com.example.nicketfoxcustomerlist.utils.SnackBarUtil
 import com.example.nicketfoxcustomerlist.viewmodel.UserViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.activity_add_details.*
+import kotlinx.android.synthetic.main.fragment_home.*
+import kotlinx.android.synthetic.main.fragment_home.view.*
 
 @AndroidEntryPoint
 class AddDetailsActivity : AppCompatActivity() {
@@ -54,6 +57,7 @@ class AddDetailsActivity : AppCompatActivity() {
                 .isEmpty() && et_Phone.text.toString().isEmpty()
         ) {
             Toast.makeText(this, "Fields can't be empty", Toast.LENGTH_SHORT).show()
+
             return false
         }
         return true
