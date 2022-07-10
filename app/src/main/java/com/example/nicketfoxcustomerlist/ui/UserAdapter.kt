@@ -5,6 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.nicketfoxcustomerlist.R
+import com.example.nicketfoxcustomerlist.infra.OnUserItemClicked
 import com.example.nicketfoxcustomerlist.model.User
 import kotlinx.android.synthetic.main.item_layout.view.*
 
@@ -47,6 +48,4 @@ class MoneyViewHolder(
 
 }
 
-interface OnUserItemClicked {
-    fun onClick(user: User)
-}
+

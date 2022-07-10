@@ -12,6 +12,7 @@ import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.nicketfoxcustomerlist.R
 import com.example.nicketfoxcustomerlist.databinding.FragmentHomeBinding
+import com.example.nicketfoxcustomerlist.infra.OnUserItemClicked
 import com.example.nicketfoxcustomerlist.model.User
 import com.example.nicketfoxcustomerlist.utils.SnackBarUtil
 import com.example.nicketfoxcustomerlist.viewmodel.UserViewModel

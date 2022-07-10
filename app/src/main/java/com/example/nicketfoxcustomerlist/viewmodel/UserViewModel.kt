@@ -18,6 +18,7 @@ import javax.inject.Inject
 @HiltViewModel
 class UserViewModel @Inject constructor(private val repo: UserRepo): ViewModel() {
 
+
     fun addUser(user: User){
         repo.addUserToRoom(user)
     }
